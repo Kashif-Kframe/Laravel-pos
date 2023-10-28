@@ -1,0 +1,7 @@
+.active-menu {
+    background-color: #04AA6D;
+    opacity: .8;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    color: #fff !important;
+}
