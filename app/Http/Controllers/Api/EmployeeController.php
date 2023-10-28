@@ -10,11 +10,10 @@ class EmployeeController extends Controller
 {
     public function getEmployees($id = null)
     {
-        $query = Employee::query();
-        if ($id) {
-            $query->where('company_id', $id);
-        }
-        $employees = $query->get();
+        $employees = Employee::query()->when($id , function ($q) use($id) {
+            $q->where('company_id', $id);
+        })->orderByDesc('id')->get();
+
         return Helper::apiResponse($employees);
     }
 }

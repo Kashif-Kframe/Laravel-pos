@@ -13,6 +13,6 @@ class CompanyController extends Controller
      */
     public function getCompanies()
     {
-        return Helper::apiResponse(Company::all());
+        return Helper::apiResponse(Company::orderByDesc('id')->get());
     }
 }
